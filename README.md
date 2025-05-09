@@ -1,7 +1,5 @@
 # Automated Defect Detection in Lab Equipment
 
-![Sample Defect Detection](images/sample_prediction.png)
-
 ## Project Overview
 
 This repository contains a prototype system for automatic visual inspection of lab equipment components. Developed for a Bio-Techne Software Engineering Internship technical evaluation, the solution uses transfer learning to classify parts as **good** or **defective** and provides an interactive Streamlit web app for inference.
