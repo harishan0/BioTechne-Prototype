@@ -1,8 +1,8 @@
-# Visual Defect Classifier for Lab Components (ResNet50 + Streamlit)
+# Visual Defect Classifier for Lab Components (ResNet50 Transfer Learning + Streamlit)
 
 ## Project Overview
 
-This repository contains a prototype system for automatic visual inspection of lab equipment components. Developed for a Bio-Techne Software Engineering Internship technical evaluation, the solution uses transfer learning to classify parts as **good** or **defective** and provides an interactive Streamlit web app for inference.
+This repository contains a prototype system for automatic visual inspection of lab equipment components. The solution uses transfer learning on a ResNet50 CNN to classify parts as **good** or **defective** and provides an interactive Streamlit web app for inference. 
 
 **Key Highlights:**
 
