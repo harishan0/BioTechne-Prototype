@@ -78,7 +78,7 @@ pip install -r requirements.txt
 
 ### Model Training (Optional)
 
-1. Open `train_defect_classifier_pytorch.py` in Google Colab
+1. Open `finetune.py` in Google Colab
 2. Mount Google Drive and set `data_dir` to your `data/` folder
 3. Run the script, which outputs:
 
@@ -88,8 +88,8 @@ pip install -r requirements.txt
 ### Running the Streamlit App
 
 ```bash
-# Ensure the .pth file is in the project root or update MODEL_PATH in defect_app.py
-streamlit run defect_app.py
+# Ensure the .pth file is in the project root or update MODEL_PATH in main.py
+streamlit run main.py
 ```
 
 1. Use the sidebar to upload a custom image or select sample components
