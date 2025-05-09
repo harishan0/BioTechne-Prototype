@@ -93,7 +93,7 @@ pip install -r requirements.txt
 streamlit run main.py
 ```
 
-1. Use the sidebar to upload a custom image or select sample components
+1. Use the sidebar to upload a custom image or select sample components from the samples subdirectory in this repository
 2. Adjust the defect threshold to calibrate sensitivity
 3. View prediction probabilities and pass/fail status
 
