@@ -1,4 +1,4 @@
-# Automated Defect Detection in Lab Equipment
+# Visual Defect Classifier for Lab Components (ResNet50 + Streamlit)
 
 ## Project Overview
 
@@ -15,15 +15,15 @@ This repository contains a prototype system for automatic visual inspection of l
 
 ### 1. Model Architecture & Training
 
-| Component        | Specification                                 |
-| ---------------- | --------------------------------------------- |
-| Base Model       | ResNet-50 (pre-trained on ImageNet)           |
-| Custom Head      | Dropout(0.3) + Linear(1) + Sigmoid activation |
-| Input Resolution | 224×224 RGB                                   |
-| Framework        | PyTorch                                       |
-| Loss Function    | Binary Cross-Entropy with Logits              |
-| Optimizer        | Adam (lr=1e-4 initial; lr=1e-5 fine-tune)     |
-| Scheduler        | ReduceLROnPlateau (factor=0.5; patience=2–3)  |
+| Component        | Specification                                                |
+| ---------------- | ------------------------------------------------------------ |
+| Base Model       | ResNet-50 (pre-trained on ImageNet)                          |
+| Custom Head      | Flatten → Dropout(0.3) → Linear(2048→1) → Sigmoid activation |
+| Input Resolution | 224×224 RGB                                                  |
+| Framework        | PyTorch                                                      |
+| Loss Function    | Binary Cross-Entropy with Logits                             |
+| Optimizer        | Adam (lr=1e-4 initial; lr=1e-5 fine-tune)                    |
+| Scheduler        | ReduceLROnPlateau (factor=0.5; patience=2–3)                 |
 
 ### 2. Data Loading & Augmentation
 
@@ -50,12 +50,14 @@ This repository contains a prototype system for automatic visual inspection of l
 | Inference Time | \~20–50 ms/image (CPU)       |
 | Model Size     | \~100 MB (`.pth`)            |
 
+**Note**: Inference will automatically use GPU if available.
+
 ## Key Features
 
 * **Interactive UI**: Upload any component image or select preloaded samples
 * **Adjustable Threshold**: Tune defect probability cutoff in real time
 * **Confidence Bar Chart**: Visualize model predictions for both classes
-* **ONNX Export Stub**: Easily convert model for deployment in regulated lab systems
+* **ONNX Export Stub**: Easily convert model for deployment in regulated lab systems. See `export_onnx.py` for an example script to export `.pth` weights to ONNX format.
 
 ## Installation & Usage
 
@@ -78,7 +80,7 @@ pip install -r requirements.txt
 
 ### Model Training (Optional)
 
-1. Open `finetune.py` in Google Colab
+1. Open `train_defect_classifier_pytorch.py` in Google Colab
 2. Mount Google Drive and set `data_dir` to your `data/` folder
 3. Run the script, which outputs:
 
@@ -88,8 +90,8 @@ pip install -r requirements.txt
 ### Running the Streamlit App
 
 ```bash
-# Ensure the .pth file is in the project root or update MODEL_PATH in main.py
-streamlit run main.py
+# Ensure the .pth file is in the project root or update MODEL_PATH in defect_app.py
+streamlit run defect_app.py
 ```
 
 1. Use the sidebar to upload a custom image or select sample components
