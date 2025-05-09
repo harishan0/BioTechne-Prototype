@@ -57,7 +57,6 @@ This repository contains a prototype system for automatic visual inspection of l
 * **Interactive UI**: Upload any component image or select preloaded samples
 * **Adjustable Threshold**: Tune defect probability cutoff in real time
 * **Confidence Bar Chart**: Visualize model predictions for both classes
-* **ONNX Export Stub**: Easily convert model for deployment in regulated lab systems. See `export_onnx.py` for an example script to export `.pth` weights to ONNX format.
 
 ## Installation & Usage
 
